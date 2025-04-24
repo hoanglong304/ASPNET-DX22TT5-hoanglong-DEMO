@@ -1,0 +1,16 @@
+# Ignore bin and obj folders
+bin/
+obj/
+
+# Ignore .vs folder (Visual Studio)
+.vs/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore other files or folders if needed
+*.log
+*.tmp
