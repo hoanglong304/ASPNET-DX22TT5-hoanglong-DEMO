@@ -1,0 +1,24 @@
+# BÁO CÁO TIẾN ĐỘ - TUẦN 01
+
+## Thông tin chung
+- **Họ tên sinh viên:** Hoàng Long
+- **Lớp:** DX22TT5
+- **Tên đồ án:** Xây dựng website bán giày  
+- **Tuần:** 01 (Từ ngày 28/04/2025 đến 05/05/2025)
+
+## Nội dung công việc đã thực hiện
+
+### 1. Thiết kế cơ sở dữ liệu
+- Phân tích các thực thể chính: Sản phẩm (Shoes), Loại sản phẩm (Category), Đơn hàng (Order), Khách hàng (Customer).
+- Thiết kế sơ đồ quan hệ giữa các bảng.
+- Tạo CSDL bằng MySQL với tên `managerShop`.
+
+### 2. Cài đặt Entity Framework Core
+- Cài đặt `Pomelo.EntityFrameworkCore.MySql` phiên bản tương thích với .NET 8 và EF Core 9.0.4.
+- Cấu hình DbContext và chuỗi kết nối trong `appsettings.json`.
+
+### 3. Tạo migration và cập nhật database
+- Tạo migration đầu tiên:
+  ```bash
+  dotnet ef migrations add InitialCreate
+  dotnet ef database update

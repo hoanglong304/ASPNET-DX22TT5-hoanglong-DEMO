@@ -167,3 +167,4 @@ D:\ĐỒ ÁN CHUYÊN ĐỀ ASP.NET\project_manager\managershop\managershop\bin\D
 D:\ĐỒ ÁN CHUYÊN ĐỀ ASP.NET\project_manager\managershop\managershop\bin\Debug\net8.0\MySqlConnector.dll
 D:\ĐỒ ÁN CHUYÊN ĐỀ ASP.NET\project_manager\managershop\managershop\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
 D:\ĐỒ ÁN CHUYÊN ĐỀ ASP.NET\project_manager\managershop\managershop\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\ĐỒ ÁN CHUYÊN ĐỀ ASP.NET\project_manager\managershop\managershop\obj\Debug\net8.0\managershop.sourcelink.json

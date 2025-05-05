@@ -1,0 +1,67 @@
+﻿@model managershop.Models.ProductCreateModel
+
+<h2 class="mb-3">Tạo sản phẩm mới</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group mb-3">
+        <label class="form-label">Tên sản phẩm</label>
+        <input asp-for="Product.Name" class="form-control" />
+        <span asp-validation-for="Product.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Miêu tả</label>
+        <textarea asp-for="Product.Description" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Product.Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Giá sản phẩm</label>
+        <input asp-for="Product.Price" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="Product.Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Số lượng</label>
+        <input asp-for="Product.Quantity" class="form-control" type="number" />
+        <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="form-label">Ảnh sản phẩm</label>
+        <input asp-for="ImageFile" type="file" id="categorySelect" class="form-control" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label class="form-label">Loại giày</label>
+        <select asp-for="Product.CategoryId" asp-items="Model.CategoryList" id="categorySelect" class="select-placeholder form-control">
+            <option value="">-- Chọn Loại giày --</option>
+        </select>
+        <span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-4">
+        <label class="form-label">Tên Thương hiệu</label>
+        <select asp-for="Product.BrandId" asp-items="Model.BrandList" id="brandSelect" class="select-placeholder form-control">
+            <option value="">-- Chọn thương hiệu --</option>
+        </select>
+        <span asp-validation-for="Product.BrandId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu sản phẩm</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.select-placeholder').on('change', function () {
+                if ($(this).val() !== "") {
+                    $(this).find('option[value=""]').hide();
+                }
+            });
+        });
+    </script>
+}

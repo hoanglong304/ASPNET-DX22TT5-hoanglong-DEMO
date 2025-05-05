@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "AiMGi+RlqEs=",
+  "dgSpecHash": "/acX6nOTtTk=",
   "success": true,
   "projectFilePath": "D:\\ĐỒ ÁN CHUYÊN ĐỀ ASP.NET\\project_manager\\managershop\\managershop\\managershop.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\9.0.4\\microsoft.aspnetcore.identity.ui.9.0.4.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.build.framework\\17.8.3\\microsoft.build.framework.17.8.3.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.build.locator\\1.7.8\\microsoft.build.locator.1.7.8.nupkg.sha512",
@@ -25,6 +26,7 @@
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.design\\9.0.4\\microsoft.entityframeworkcore.design.9.0.4.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.4\\microsoft.entityframeworkcore.relational.9.0.4.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\9.0.4\\microsoft.entityframeworkcore.sqlserver.9.0.4.nupkg.sha512",
+    "C:\\Users\\Acer\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\9.0.4\\microsoft.entityframeworkcore.tools.9.0.4.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.4\\microsoft.extensions.caching.abstractions.9.0.4.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.4\\microsoft.extensions.caching.memory.9.0.4.nupkg.sha512",
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.4\\microsoft.extensions.configuration.abstractions.9.0.4.nupkg.sha512",
@@ -89,8 +91,10 @@
     {
       "code": "NU1603",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "managershop depends on Pomelo.EntityFrameworkCore.MySql (>= 9.0.0-preview.1.24225.1) but Pomelo.EntityFrameworkCore.MySql 9.0.0-preview.1.24225.1 was not found. Pomelo.EntityFrameworkCore.MySql 9.0.0-preview.2.efcore.9.0.0 was resolved instead.",
+      "projectPath": "D:\\ĐỒ ÁN CHUYÊN ĐỀ ASP.NET\\project_manager\\managershop\\managershop\\managershop.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\ĐỒ ÁN CHUYÊN ĐỀ ASP.NET\\project_manager\\managershop\\managershop\\managershop.csproj",
       "libraryId": "Pomelo.EntityFrameworkCore.MySql",
       "targetGraphs": [
         "net8.0"

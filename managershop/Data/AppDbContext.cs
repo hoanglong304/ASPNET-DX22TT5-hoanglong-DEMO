@@ -1,16 +1,32 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using managershop.Models;  // Đảm bảo bạn đã import các model của mình
 
+
 namespace managershop.Data
 {
     public class AppDbContext : DbContext
     {
-        // Constructor để khởi tạo DbContext với các tùy chọn cấu hình
-        public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options)
-        { }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        // Định nghĩa các DbSet để đại diện cho các bảng trong cơ sở dữ liệu
+        public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<ProductSize> ProductSizes { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ProductSize>()
+                .HasKey(ps => new { ps.ProductId, ps.Size });
+
+            modelBuilder.Entity<OrderDetail>()
+                .HasKey(od => new { od.OrderId, od.ProductId, od.Size });
+
+            modelBuilder.Entity<CartItem>()
+                .HasKey(ci => new { ci.UserId, ci.ProductId, ci.Size });
+        }
     }
 }

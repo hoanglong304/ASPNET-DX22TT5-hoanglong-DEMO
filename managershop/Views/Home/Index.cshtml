@@ -1,23 +1,32 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model IEnumerable<managershop.Models.Product>
 
-<div class="text-center">
-    <table>
-        <thead>
-            <tr>
-                <th>Tên sản phẩm</th>
-                <th>Giá</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in Model)
-            {
-                <tr>
-                    <td>@product.Name</td>
-                    <td>@product.Price</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+@section Banner {
+    <section class="sc-banner-top bg-dark text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Khám phá những đôi giày đỉnh cao</h1>
+            <p class="lead">Sale up to 50% - Mua ngay hôm nay!</p>
+            <a href="/Product" class="btn btn-primary btn-lg">Mua ngay</a>
+        </div>
+    </section>
+}
+<h1 class="text-center mb-5 mt-5">Danh sách sản phẩm home page</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var product in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                <div class="card-body text-center">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">@product.Description</p>
+                    <p class="fw-bold text-danger">@product.Price.ToString("C")</p>
+                    <a href="#" class="btn btn-primary">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    }
 </div>

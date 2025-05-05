@@ -1,5 +1,17 @@
+wwwroot\css\product.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\Images\Banner\banner-top.jpg
+wwwroot\Images\Product\shoe-adidas-1.png
+wwwroot\Images\Product\shoe-adidas-2.png
+wwwroot\Images\Product\shoe-adidas-3.png
+wwwroot\Images\Product\shoe-adidas-4.png
+wwwroot\Images\Product\shoe-nike-1.png
+wwwroot\Images\Product\shoe-nike-2.png
+wwwroot\Images\Product\shoe-nike-3.png
+wwwroot\Images\Product\shoe-nike-4.png
+wwwroot\Images\shoe-adidas-1.png
+wwwroot\Images\shoe-adidas-2.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

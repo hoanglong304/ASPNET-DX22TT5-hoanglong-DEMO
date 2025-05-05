@@ -1,11 +1,16 @@
 ﻿using managershop.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using managershop.Models;  // Đảm bảo import đúng namespace chứa lớp ApplicationUser
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+//// Cấu hình Identity
+//builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+//    .AddEntityFrameworkStores<AppDbContext>()
+//    .AddDefaultTokenProviders();
+
 // Cấu hình DbContext và kết nối đến cơ sở dữ liệu SQL Server
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -13,6 +18,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     ));
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -29,10 +37,16 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "product",
+    pattern: "Product",
+    defaults: new { controller = "Product", action = "Index" });  // Thêm route cho Product controller
 
 app.Run();

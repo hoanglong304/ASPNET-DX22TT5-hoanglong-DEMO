@@ -18,14 +18,13 @@ namespace managershop.Controllers
             _context = context;  // Lưu đối tượng AppDbContext
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            // Lấy danh sách sản phẩm từ cơ sở dữ liệu
-            var products = _context.Products.ToList(); // Truy vấn tất cả sản phẩm từ cơ sở dữ liệu
+            var products = await _context.Products.ToListAsync();  // Entity Framework sẽ tự xử lý giá trị NULL
 
-            // Truyền danh sách sản phẩm vào View
             return View(products);
         }
+
 
         public IActionResult Privacy()
         {

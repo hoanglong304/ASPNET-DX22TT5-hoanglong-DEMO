@@ -1,0 +1,10 @@
+﻿body {
+}
+.sc-banner-top {
+    background-image: url('/images/banner/banner-top.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display:flex;
+    align-items:center
+}
