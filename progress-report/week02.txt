@@ -1,0 +1,27 @@
+# BÁO CÁO TIẾN ĐỘ - TUẦN 02
+
+## Thông tin chung
+- **Họ tên sinh viên:** Hoàng Long
+- **Lớp:** DX22TT5
+- **Tên đồ án:** Xây dựng website bán giày  
+- **Tuần:** 02 (Từ ngày 05/05/2025 đến 12/05/2025)
+
+## Nội dung công việc đã thực hiện
+
+-Cài đặt controller và view theo mô hình ASP.NET MVC cho chức năng quản lý sản phẩm:
+
+-Create: Thêm sản phẩm mới thông qua form nhập liệu.
+
+-Read: Hiển thị danh sách sản phẩm bằng bảng có phân trang cơ bản.
+
+-Update: Cho phép chỉnh sửa thông tin sản phẩm đã tồn tại.
+
+-Delete: Xoá sản phẩm thông qua thao tác xác nhận từ người dùng.
+
+-Sử dụng ViewModel để truyền dữ liệu giữa Controller và View (kết hợp dữ liệu sản phẩm, danh mục, thương hiệu).
+
+-Hoàn thiện giao diện CRUD bằng Razor và Bootstrap cho phần quản lý sản phẩm.
+
+-Kiểm tra hoạt động kết nối CSDL, hiển thị, cập nhật dữ liệu trong MySQL thông qua các chức năng trên.
+
+-Khắc phục lỗi khi đồng bộ Entity Framework với Pomelo cho phiên bản phù hợp với .NET 8.

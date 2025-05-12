@@ -1,25 +1,25 @@
 ﻿using managershop.Data;
+using managershop.Models;  // Đảm bảo import đúng namespace chứa lớp ApplicationUser
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using managershop.Models;  // Đảm bảo import đúng namespace chứa lớp ApplicationUser
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
-
-//// Cấu hình Identity
-//builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-//    .AddEntityFrameworkStores<AppDbContext>()
-//    .AddDefaultTokenProviders();
-
-// Cấu hình DbContext và kết nối đến cơ sở dữ liệu SQL Server
-
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
     ));
 
-// Add services to the container.
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Account/Login";           // Trang login
+        options.AccessDeniedPath = "/Account/AccessDenied"; // Nếu không đủ quyền
+        options.ExpireTimeSpan = TimeSpan.FromDays(7);   // Thời gian sống của cookie
+    });
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

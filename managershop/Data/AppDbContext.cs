@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using managershop.Models;  // Đảm bảo bạn đã import các model của mình
 
 
 namespace managershop.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -19,6 +20,8 @@ namespace managershop.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder); // ⚠️ BẮT BUỘC PHẢI CÓ DÒNG NÀY
+
             modelBuilder.Entity<ProductSize>()
                 .HasKey(ps => new { ps.ProductId, ps.Size });
 

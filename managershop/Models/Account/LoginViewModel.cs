@@ -1,14 +1,17 @@
-﻿namespace managershop.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace managershop.ViewModels
 {
     public class LoginViewModel
     {
-        // Tên người dùng hoặc email
-        public string Username { get; set; }
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; }
 
-        // Mật khẩu
+        [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        // Lưu mật khẩu hay không
         public bool RememberMe { get; set; }
     }
 }

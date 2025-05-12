@@ -18,30 +18,27 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		  <PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
-	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.13" />
 
-	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.13">
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		  <PrivateAssets>all</PrivateAssets>
 	  </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.4">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.13">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0-preview.1.24225.1" />
+	  <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.13" />
+
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\Images\Banner\banner-top.jpg" />
-    <None Include="wwwroot\Images\Product\shoe-adidas-1.png" />
-    <None Include="wwwroot\Images\Product\shoe-adidas-2.png" />
-    <None Include="wwwroot\Images\Product\shoe-adidas-3.png" />
-    <None Include="wwwroot\Images\Product\shoe-adidas-4.png" />
-    <None Include="wwwroot\Images\Product\shoe-nike-1.png" />
-    <None Include="wwwroot\Images\Product\shoe-nike-2.png" />
-    <None Include="wwwroot\Images\Product\shoe-nike-3.png" />
-    <None Include="wwwroot\Images\Product\shoe-nike-4.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\Product\" />
   </ItemGroup>
 
 </Project>
