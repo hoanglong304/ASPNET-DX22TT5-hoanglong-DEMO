@@ -1,26 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using managershop.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace managershop.Models
+public class CartItem
 {
-    public class CartItem
-    {
-        [Key]
-        public int Id { get; set; }
+    [Key]
+    public int Id { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
-        public User User { get; set; }
+    [Required]
+    public int UserId { get; set; }
 
-        [Required]
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
+    [ForeignKey(nameof(UserId))]
+    public User User { get; set; }
 
-        [Required]
-        public int Size { get; set; }
+    [Required]
+    public int ProductId { get; set; }
 
-        [Required]
-        [Range(1, 100, ErrorMessage = "Số lượng từ 1 đến 100")]
-        public int Quantity { get; set; }
-    }
+    [ForeignKey(nameof(ProductId))]
+    public Product Product { get; set; }
+
+    [Required]
+    public int Size { get; set; }
+
+    [Required]
+    [Range(1, 100)]
+    public int Quantity { get; set; }
 }

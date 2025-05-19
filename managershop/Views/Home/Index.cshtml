@@ -4,7 +4,7 @@
 @model IEnumerable<managershop.Models.Product>
 
 @section Banner {
-    <section class="sc-banner-top bg-dark text-white text-center py-5">
+    <section class="sc-banner-top bg-dark text-white text-center py-5" style="margin-top:-50px">
         <div class="container">
             <h1 class="display-4 fw-bold">Khám phá những đôi giày đỉnh cao</h1>
             <p class="lead">Sale up to 50% - Mua ngay hôm nay!</p>
@@ -12,7 +12,9 @@
         </div>
     </section>
 }
-<h1 class="text-center mb-5 mt-5">Danh sách sản phẩm home page</h1>
+<h1 class="text-center mb-5" style="margin-top: 60px;">
+    Danh sách sản phẩm home page
+</h1>
 
 <div class="row row-cols-1 row-cols-md-4 g-4">
     @foreach (var product in Model)
@@ -26,9 +28,66 @@
                     <h5 class="card-title">@product.Name</h5>
                     <p class="card-text">@product.Description</p>
                     <p class="fw-bold text-danger">@product.Price.ToString("#,##0")</p>
-                    <a href="#" class="btn btn-primary">Mua</a>
+
+                    <div class="d-flex justify-content-center gap-2 mt-2">
+                        <a href="#" class="btn btn-primary px-3">Mua</a>
+
+                        <a href="#" class="btn btn-outline-success px-3 add-to-cart-btn" title="Thêm vào giỏ hàng" data-product-id="@product.Id">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
     }
 </div>
+@section Scripts {
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(function () {
+            $('.add-to-cart-btn').click(function (e) {
+                e.preventDefault();
+
+                var productId = $(this).data('product-id');
+                var size = $(this).data('size') || 0;
+
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    type: 'POST',
+                    data: { productId: productId, size: size },
+                    success: function (response) {
+                        if (response.success) {
+                            Swal.fire({
+                                toast: true,
+                                position: 'bottom-end',
+                                icon: 'success',
+                                title: response.message,
+                                showConfirmButton: false,
+                                timer: 1500,
+                                timerProgressBar: true
+                            });
+
+                            $('#cart-summary-add').load('/Cart/GetCartSummary');
+                        } else {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Thông báo',
+                                text: response.message
+                            });
+                        }
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi',
+                            text: 'Đã xảy ra lỗi khi thêm vào giỏ hàng.'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+
+}

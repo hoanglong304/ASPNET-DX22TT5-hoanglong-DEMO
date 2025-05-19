@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "ContainingType": "CartApiController",
+    "Method": "UpdateQuantity",
+    "RelativePath": "api/CartApi/UpdateQuantity",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "managershop.ViewModels.CartItemUpdateViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

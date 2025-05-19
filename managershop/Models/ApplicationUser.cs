@@ -5,7 +5,7 @@ namespace managershop.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public string FullName { get; set; }
+        public int Id { get; set; }   // Đảm bảo là int
         // Thêm các thuộc tính khác nếu cần
     }
 }

@@ -82,7 +82,8 @@ public class AccountController : Controller
         {
             FullName = model.FullName,
             Email = model.Email,
-            Role = model.Role
+            Role = model.Role,
+            CreatedAt = DateTime.Now
         };
 
         var hasher = new PasswordHasher<User>();

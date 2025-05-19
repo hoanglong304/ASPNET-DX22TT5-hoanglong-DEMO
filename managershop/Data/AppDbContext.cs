@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using managershop.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using managershop.Models;  // Đảm bảo bạn đã import các model của mình
-
 
 namespace managershop.Data
 {
-    public class AppDbContext : IdentityDbContext<ApplicationUser>
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
@@ -20,7 +19,7 @@ namespace managershop.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder); // ⚠️ BẮT BUỘC PHẢI CÓ DÒNG NÀY
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<ProductSize>()
                 .HasKey(ps => new { ps.ProductId, ps.Size });
@@ -28,8 +27,21 @@ namespace managershop.Data
             modelBuilder.Entity<OrderDetail>()
                 .HasKey(od => new { od.OrderId, od.ProductId, od.Size });
 
-            modelBuilder.Entity<CartItem>()
-                .HasKey(ci => new { ci.UserId, ci.ProductId, ci.Size });
+            modelBuilder.Entity<CartItem>(entity =>
+            {
+                entity.HasOne(c => c.User)
+                    .WithMany(u => u.CartItems)  // Khai báo collection CartItems trong User
+                    .HasForeignKey(c => c.UserId)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(c => c.Product)
+                    .WithMany() // Nếu Product có collection CartItems, sửa lại tương tự
+                    .HasForeignKey(c => c.ProductId)
+                    .IsRequired()
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
         }
+
     }
 }

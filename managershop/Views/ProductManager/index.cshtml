@@ -5,6 +5,12 @@
 
 <h1 class="text-center mb-5" style="margin-top: 60px;">Danh sách sản phẩm</h1>
 
+<div class="text-end mb-4">
+    <a asp-controller="ProductManager" asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Thêm sản phẩm mới
+    </a>
+</div>
+
 <div class="row row-cols-1 row-cols-md-4 g-4">
     @foreach (var product in Model)
     {
@@ -17,9 +23,25 @@
                     <h5 class="card-title">@product.Name</h5>
                     <p class="card-text">@product.Description</p>
                     <p class="fw-bold text-danger">@product.Price.ToString("#,##0")</p>
-                    <a href="#" class="btn btn-primary">Mua</a>
+                    <a asp-controller="ProductManager" asp-action="Details" asp-route-id="@product.Id" class="btn btn-primary">Xem chi tiết</a>
                 </div>
             </div>
         </div>
     }
 </div>
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Đưa nội dung từ TempData sang JavaScript
+        var successMessage = '@TempData["SuccessMessage"]';
+
+        if (successMessage) {
+            Swal.fire({
+                icon: 'success',
+                title: successMessage,
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }
+    </script>
+}

@@ -1,4 +1,126 @@
-﻿@page
-@model managershop.Views.Cart.IndexModel
+﻿@model List<CartItem>
+
 @{
+    ViewData["Title"] = "Giỏ hàng";
+}
+
+<h2>Giỏ hàng</h2>
+
+@if (!Model.Any())
+{
+    <p>Giỏ hàng trống.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var item = Model[i];
+                var itemTotal = item.Product.Price * item.Quantity;
+                <tr>
+                    <td><img src="@item.Product.ImageUrl" width="60" /></td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Product.Price.ToString("#,##0") ₫</td>
+                    <td>
+                        <div class="input-group" style="width: 120px;">
+                            <button class="btn btn-outline-secondary btn-sm decrement" data-id="@item.Id">-</button>
+                            <input type="number"
+                                   class="form-control text-center quantity-input"
+                                   data-id="@item.Id"
+                                   value="@item.Quantity"
+                                   min="1" />
+                            <button class="btn btn-outline-secondary btn-sm increment" data-id="@item.Id">+</button>
+                        </div>
+                    </td>
+                    <td><span class="item-total" data-id="@item.Id">@itemTotal.ToString("#,##0") ₫</span></td>
+                    <td>
+                        <a asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Xoá</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="fw-bold text-end">
+        Tổng cộng: <span id="total-amount">@Model.Sum(i => i.Product.Price * i.Quantity).ToString("#,##0") ₫</span>
+    </div>
+}
+@section Scripts {
+    <script>
+        function updateQuantity(id, quantity) {
+            if (quantity < 1) return;
+
+            fetch('/api/CartApi/UpdateQuantity', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: id, quantity: quantity })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    // Cập nhật giá từng sản phẩm
+                    document.querySelector(`.item-total[data-id="${id}"]`).textContent =
+                        (data.itemTotal).toLocaleString('vi-VN') + " ₫";
+
+                    // Cập nhật tổng giỏ hàng
+                    recalculateTotal();
+                } else {
+                    alert("Cập nhật thất bại.");
+                }
+            });
+        }
+
+        function recalculateTotal() {
+            let total = 0;
+            document.querySelectorAll('.item-total').forEach(el => {
+                const value = parseInt(el.textContent.replace(/[^\d]/g, '')) || 0;
+                total += value;
+            });
+            document.getElementById("total-amount").textContent = total.toLocaleString('vi-VN') + " ₫";
+        }
+
+        // Sự kiện khi thay đổi input
+        document.querySelectorAll('.quantity-input').forEach(input => {
+            input.addEventListener('change', function () {
+                const id = parseInt(this.dataset.id);
+                const quantity = parseInt(this.value);
+                updateQuantity(id, quantity);
+            });
+        });
+
+        // Sự kiện khi bấm nút +
+        document.querySelectorAll('.increment').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = parseInt(this.dataset.id);
+                const input = document.querySelector(`.quantity-input[data-id="${id}"]`);
+                const quantity = parseInt(input.value) + 1;
+                input.value = quantity;
+                updateQuantity(id, quantity);
+            });
+        });
+
+        // Sự kiện khi bấm nút -
+        document.querySelectorAll('.decrement').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = parseInt(this.dataset.id);
+                const input = document.querySelector(`.quantity-input[data-id="${id}"]`);
+                const quantity = Math.max(1, parseInt(input.value) - 1);
+                input.value = quantity;
+                updateQuantity(id, quantity);
+            });
+        });
+    </script>
 }

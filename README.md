@@ -42,6 +42,7 @@
 |------|------------------|--------------|
 | Tuần 1 | Tạo CSDL, kết nối EF Core, hiển thị danh sách sản phẩm | [Xem tại đây](progress-report/week01.txt)
 | Tuần 2 | Hoàn thiện chức năng CRUD sản phẩm (thêm, sửa, xoá), xử lý tương tác với CSDL | [Xem tại đây](progress-report/week02.txt) 
+| Tuần 3 | Xây dựng chức năng đăng ký, đăng nhập và phân quyền người dùng; phát triển chức năng giỏ hàng với lưu trữ trong database | [Xem tại đây](progress-report/week03.txt) |
 
 ---
 

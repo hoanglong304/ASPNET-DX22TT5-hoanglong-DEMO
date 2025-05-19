@@ -6,6 +6,15 @@ wwwroot\Images\Product\shoe-adidas-1.png
 wwwroot\Images\Product\shoe-adidas-2.png
 wwwroot\Images\Product\shoe-adidas-3.png
 wwwroot\Images\Product\shoe-adidas-4.png
+wwwroot\Images\Product\shoe-gucci-1.png
+wwwroot\Images\Product\shoe-newblance-1.png
+wwwroot\Images\Product\shoe-nike-1.png
+wwwroot\Images\Product\shoe-nike-2.png
+wwwroot\Images\Product\shoe-nike-3.png
+wwwroot\Images\Product\shoe-nike-4.png
+wwwroot\Images\Product\shoe-promax-1.png
+wwwroot\Images\Product\shoe-puma-1.png
+wwwroot\Images\Product\shoe-puma-2.png
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map

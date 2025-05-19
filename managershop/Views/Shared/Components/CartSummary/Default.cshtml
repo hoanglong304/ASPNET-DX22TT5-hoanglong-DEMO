@@ -1,0 +1,11 @@
+﻿@model int
+
+<a class="nav-link text-dark position-relative" asp-controller="Cart" asp-action="Index" id="cart-summary-add">
+    🛒 Giỏ hàng
+    @if (Model > 0)
+    {
+        <span class="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-danger">
+            @Model
+        </span>
+    }
+</a>
