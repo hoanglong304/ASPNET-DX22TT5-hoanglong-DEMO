@@ -1,0 +1,52 @@
+Họ tên sinh viên: Hoàng Long
+
+Lớp: DX22TT5
+
+Tên đồ án: Xây dựng website bán giày
+
+Tuần: 04 (Từ ngày 20/05/2025 đến 25/05/2025)
+
+Nội dung công việc đã thực hiện
+
+1. Xây dựng chức năng mua hàng
+
+Hiển thị chi tiết sản phẩm: Tạo trang chi tiết cho từng sản phẩm, bao gồm thông tin mô tả, hình ảnh, giá cả và các tùy chọn như kích cỡ, màu sắc.
+
+Thêm sản phẩm vào giỏ hàng: Cập nhật giỏ hàng khi người dùng chọn sản phẩm và số lượng, lưu trữ thông tin vào cơ sở dữ liệu.
+
+Hiển thị giỏ hàng: Tạo trang giỏ hàng để người dùng xem danh sách sản phẩm đã chọn, số lượng, giá trị và tổng tiền.
+
+2. Xây dựng chức năng đặt hàng
+
+Lưu trữ đơn hàng: Lưu thông tin đơn hàng vào cơ sở dữ liệu, bao gồm chi tiết sản phẩm, thông tin người mua và trạng thái đơn hàng.
+
+3. Xây dựng chức năng tìm kiếm sản phẩm
+
+Tìm kiếm theo tên: Cho phép người dùng nhập từ khóa để tìm kiếm sản phẩm theo tên.
+
+Tìm kiếm theo danh mục: Cung cấp bộ lọc để người dùng chọn danh mục sản phẩm như giày thể thao, giày công sở, giày nữ, v.v.
+
+Tìm kiếm nâng cao: Hỗ trợ tìm kiếm theo nhiều tiêu chí như giá cả, thương hiệu, kích cỡ, màu sắc.
+
+4. Xây dựng chức năng quản lý đơn hàng (Admin)
+
+Danh sách đơn hàng: Hiển thị danh sách tất cả các đơn hàng, bao gồm thông tin người mua, trạng thái đơn hàng và tổng giá trị.
+
+Chi tiết đơn hàng: Cho phép quản trị viên xem chi tiết từng đơn hàng, bao gồm sản phẩm, số lượng, giá trị và thông tin người mua.
+
+5. Hoàn thiện và kiểm thử
+
+Kiểm thử chức năng mua hàng: Đảm bảo người dùng có thể thêm sản phẩm vào giỏ, xem giỏ hàng
+
+Kiểm thử chức năng đặt hàng: Đảm bảo đơn hàng được lưu trữ chính xác và thông tin người mua được cập nhật.
+
+Kiểm thử chức năng quản lý đơn hàng: Đảm bảo quản trị viên có thể xem và quản lý đơn hàng một cách hiệu quả.
+
+*Kết quả đạt được:
+
+Hoàn thành chức năng mua hàng, đặt hàng, tìm kiếm sản phẩm và quản lý đơn hàng.
+
+Đảm bảo các chức năng hoạt động ổn định và đáp ứng yêu cầu đề ra.
+
+Giao diện người dùng thân thiện và dễ sử dụng.
+

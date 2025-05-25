@@ -55,6 +55,10 @@ else
     <div class="fw-bold text-end">
         Tổng cộng: <span id="total-amount">@Model.Sum(i => i.Product.Price * i.Quantity).ToString("#,##0") ₫</span>
     </div>
+
+    <form asp-controller="Order" asp-action="Create" method="post">
+        <button type="submit" class="btn btn-success">Đặt hàng</button>
+    </form>
 }
 @section Scripts {
     <script>

@@ -13,38 +13,51 @@
     </section>
 }
 <h1 class="text-center mb-5" style="margin-top: 60px;">
-    Danh sách sản phẩm home page
+    Danh sách sản phẩm
 </h1>
 
-<div class="row row-cols-1 row-cols-md-4 g-4">
-    @foreach (var product in Model)
-    {
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="image-wrapper d-flex align-items-center justify-content-center" style="height: 250px; overflow: hidden;">
-                    <img src="@product.ImageUrl" class="card-img-top w-100 object-fit-cover" alt="@product.Name" />
-                </div>
-                <div class="card-body text-center">
-                    <h5 class="card-title">@product.Name</h5>
-                    <p class="card-text">@product.Description</p>
-                    <p class="fw-bold text-danger">@product.Price.ToString("#,##0")</p>
+<form id="searchForm" class="mb-4 d-flex justify-content-end">
+    <div class="input-group" style="width: 300px;">
+        <input type="text" name="search" id="searchInput" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+        <button class="btn btn-outline-primary" type="submit">Tìm</button>
+    </div>
+</form>
 
-                    <div class="d-flex justify-content-center gap-2 mt-2">
-                        <a href="#" class="btn btn-primary px-3">Mua</a>
-
-                        <a href="#" class="btn btn-outline-success px-3 add-to-cart-btn" title="Thêm vào giỏ hàng" data-product-id="@product.Id">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    }
+<div id="productList" class="row row-cols-1 row-cols-md-4 g-4">
+    @await Html.PartialAsync("_ProductListPartial", Model)
 </div>
+
+@{
+    var added = Context.Request.Query["added"].ToString();
+}
+
 @section Scripts {
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+                $(function () {
+            $('#searchForm').submit(function (e) {
+                e.preventDefault();
+                var keyword = $('#searchInput').val();
+
+                $.ajax({
+                    url: '/Home/Search',
+                    type: 'GET',
+                    data: { search: keyword },
+                    success: function (result) {
+                        $('#productList').html(result);
+                    },
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi',
+                            text: 'Không thể tìm kiếm sản phẩm.'
+                        });
+                    }
+                });
+            });
+        });
+
+
         $(function () {
             $('.add-to-cart-btn').click(function (e) {
                 e.preventDefault();
@@ -56,7 +69,7 @@
                     url: '/Cart/AddToCart',
                     type: 'POST',
                     data: { productId: productId, size: size },
-                    success: function (response) {
+                    success: function (response) {  
                         if (response.success) {
                             Swal.fire({
                                 toast: true,
@@ -86,6 +99,34 @@
                     }
                 });
             });
+        });
+
+         $(function() {
+            var added = '@added';
+            if (added === 'true') {
+                Swal.fire({
+                    toast: true,
+                    position: 'bottom-end',
+                    icon: 'success',
+                    title: 'Đã thêm vào giỏ hàng!',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    timerProgressBar: true
+                });
+            }
+        });
+
+        $(function () {
+            // Kiểm tra query string
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('ordered') === 'true') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Đặt hàng thành công',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
         });
     </script>
 

@@ -1,0 +1,49 @@
+﻿@model managershop.Models.Order
+
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+}
+
+<h2>Chi tiết đơn hàng #@Model.Id</h2>
+
+<div class="mb-3">
+    <strong>Ngày đặt:</strong> @Model.OrderDate.ToString("dd/MM/yyyy HH:mm")<br />
+    <strong>Tổng tiền:</strong> @Model.Total.ToString("#,##0") VNĐ<br />
+    <strong>Trạng thái:</strong> @Model.Status
+</div>
+
+<h4>Sản phẩm trong đơn</h4>
+@if (Model.OrderDetails == null || !Model.OrderDetails.Any())
+{
+    <p>Đơn hàng chưa có sản phẩm nào.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Sản phẩm</th>
+                <th>Ảnh</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@detail.Product.Name</td>
+                    <td>
+                        <img src="@detail.Product.ImageUrl" alt="@detail.Product.Name" width="60" />
+                    </td>
+                    <td>@detail.Price.ToString("#,##0") VNĐ</td>
+                    <td>@detail.Quantity</td>
+                    <td>@( (detail.Price * detail.Quantity).ToString("#,##0") ) VNĐ</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-action="Index" class="btn btn-secondary">Quay lại danh sách đơn hàng</a>

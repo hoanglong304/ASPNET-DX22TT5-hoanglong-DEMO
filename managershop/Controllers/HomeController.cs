@@ -18,13 +18,27 @@ namespace managershop.Controllers
             _context = context;  // Lưu đối tượng AppDbContext
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Search(string search)
+        {
+            IQueryable<Product> products = _context.Products;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                products = products.Where(p => p.Name.Contains(search) || p.Description.Contains(search));
+            }
+
+            var productList = await products.ToListAsync();
+
+            return PartialView("_ProductListPartial", productList);
+        }
+
         public async Task<IActionResult> Index()
         {
             var products = await _context.Products.ToListAsync();  // Entity Framework sẽ tự xử lý giá trị NULL
 
             return View(products);
         }
-
 
         public IActionResult Privacy()
         {
@@ -36,5 +50,6 @@ namespace managershop.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

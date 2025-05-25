@@ -40,6 +40,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/ĐỒ ÁN CHUYÊN ĐỀ ASP.NET/project_manager/managershop/managershop/Views/Home/_ProductListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfUHJvZHVjdExpc3RQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ĐỒ ÁN CHUYÊN ĐỀ ASP.NET/project_manager/managershop/managershop/Views/Order/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ĐỒ ÁN CHUYÊN ĐỀ ASP.NET/project_manager/managershop/managershop/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ĐỒ ÁN CHUYÊN ĐỀ ASP.NET/project_manager/managershop/managershop/Views/ProductManager/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdE1hbmFnZXJcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -54,6 +66,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/ĐỒ ÁN CHUYÊN ĐỀ ASP.NET/project_manager/managershop/managershop/Views/ProductManager/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdE1hbmFnZXJcaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ĐỒ ÁN CHUYÊN ĐỀ ASP.NET/project_manager/managershop/managershop/Views/Product/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ĐỒ ÁN CHUYÊN ĐỀ ASP.NET/project_manager/managershop/managershop/Views/Product/Index.cshtml]

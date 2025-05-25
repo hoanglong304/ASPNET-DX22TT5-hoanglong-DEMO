@@ -1,0 +1,75 @@
+﻿@model managershop.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="@Model.ImageUrl" class="img-fluid" alt="@Model.Name" />
+        </div>
+        <div class="col-md-6">
+            <h2>@Model.Name</h2>
+            <p>@Model.Description</p>
+            <p class="fw-bold text-danger fs-4">@Model.Price.ToString("#,##0") VNĐ</p>
+
+            <form id="addToCartForm">
+                <input type="hidden" name="productId" value="@Model.Id" />
+                <div class="mb-3">
+                    <label for="size" class="form-label">Chọn size</label>
+                    <select name="size" id="sizeSelect" class="form-select">
+                        <option value="38">38</option>
+                        <option value="39">39</option>
+                        <option value="40">40</option>
+                        <option value="41">41</option>
+                        <option value="42">42</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success">Thêm vào giỏ hàng</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(function () {
+            $('#addToCartForm').submit(function (e) {
+                e.preventDefault();
+
+                var productId = $('input[name="productId"]').val();
+                var size = $('#sizeSelect').val();
+
+                $.ajax({
+                    url: '/Cart/AddToCart',
+                    type: 'POST',
+                    data: { productId: productId, size: size },
+                     success: function (response) {
+                        if (response.success) {
+                            // Chuyển đến trang giỏ hàng
+                            window.location.href = '/?added=true';
+                        } else {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Thông báo',
+                                text: response.message
+                            });
+                        }
+                    },
+
+                    error: function () {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Lỗi',
+                            text: 'Không thể thêm vào giỏ hàng.'
+                        });
+                    }
+                });
+            });
+        });
+
+        
+    </script>
+}

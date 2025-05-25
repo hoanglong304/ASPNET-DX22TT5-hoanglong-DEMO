@@ -1,5 +1,8 @@
-﻿namespace managershop.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace managershop.Models
 {
+    [Table("OrderDetail")]
     public class OrderDetail
     {
         public int OrderId { get; set; }

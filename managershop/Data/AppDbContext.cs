@@ -14,7 +14,7 @@ namespace managershop.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<OrderDetail> OrderDetail { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
